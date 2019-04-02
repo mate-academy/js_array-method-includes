@@ -1,8 +1,8 @@
 {
-  "name": "array-method-join",
+  "name": "array-method-includes",
   "version": "1.0.0",
-  "description": "Custom implementation of Array.prototype.join()",
-  "main": "src/arrayMethodJoin.js",
+  "description": "Custom implementation of Array.prototype.includes()",
+  "main": "src/arrayMethodIncludes.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint **/*.js"
