@@ -5,7 +5,7 @@ const source = ['11', '22', '33', NaN, '', 3];
 applyCustomIncludes();
 
 test('`includes2` is added to [].__proto__', () => {
-    expect(typeof [].includes2).toBe('function');
+  expect(typeof [].includes2).toBe('function');
 });
 
 test(`without valueToFind`, () => {
