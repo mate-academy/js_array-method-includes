@@ -5,8 +5,8 @@
  *
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function() {
-    // write code here
+  [].__proto__.includes2 = function(...args) {
+    return this.includes(...args);
   };
 }
 
