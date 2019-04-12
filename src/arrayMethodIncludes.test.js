@@ -9,6 +9,11 @@ test('includes2 is added to [].__proto__', () => {
     .toBeInstanceOf(Function);
 });
 
+test(`includes2 doesn't call default includes`, () => {
+  expect([].includes2.toString().includes('.includes'))
+    .toBe(false);
+});
+
 test(`without valueToFind`, () => {
   expect(source.includes2())
     .toBe(false);
