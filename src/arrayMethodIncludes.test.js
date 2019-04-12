@@ -10,7 +10,7 @@ test('includes2 is added to [].__proto__', () => {
 });
 
 test(`includes2 doesn't call default includes`, () => {
-  expect([].includes2.toString().includes('.includes'))
+  expect([].includes2.toString().includes('.includes('))
     .toBe(false);
 });
 
