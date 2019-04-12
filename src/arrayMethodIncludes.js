@@ -4,7 +4,7 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(item) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex) {
     // write code here
   };
 }
