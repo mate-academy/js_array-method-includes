@@ -7,8 +7,8 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(item = null, index = 0) {
     let result = false;
-    for (index; index < this.length; index++) {
-      if (this[index] === item || isNaN(item)) {
+    for (let i = index; i < this.length; i++) {
+      if (this[i] === item || isNaN(item)) {
         result = true;
       }
     }
