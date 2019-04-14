@@ -10,7 +10,6 @@ function applyCustomIncludes() {
     }
     let index = 0;
     fromIndex < 0 ? index = 0 : index = fromIndex;
-    console.log(index);
     for (index; index < this.length; index++) {
       if (typeof valueToFind === typeof this[index]) {
         if (valueToFind === this[index]) {
