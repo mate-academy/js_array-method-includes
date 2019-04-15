@@ -7,9 +7,9 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(elementInArray, index = 0) {
     for (let i = index; i < this.length; i++) {
-      if (isNaN(elementInArray) &&
+      if (Number.isNaN(elementInArray) &&
         typeof elementInArray === 'number' &&
-        isNaN(this[i])) {
+        Number.isNaN(this[i])) {
         return true;
       }
       if (this[i] === elementInArray) {
