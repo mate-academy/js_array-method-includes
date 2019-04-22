@@ -8,17 +8,16 @@ function applyCustomIncludes() {
     const arrayLength = this.length;
     if (
       arrayLength === 0
-      || fromIndex >= this.length // eslint-disable-line
+      || fromIndex >= arrayLength // eslint-disable-line
       || valueToFind === undefined  // eslint-disable-line
     ) {
       return false;
     }
 
-    for (let i = fromIndex; i < this.length; i++) {
-      if (isNaN(valueToFind) && isNaN(this[i])) {
+    for (let i = fromIndex; i < arrayLength; i++) {
+      if ((isNaN(valueToFind) && isNaN(this[i])) || valueToFind === this[i]) {
         return true;
       }
-      if (valueToFind === this[i]) return true;
     }
     return false;
   };
