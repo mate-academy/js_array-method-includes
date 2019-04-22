@@ -15,12 +15,15 @@ function applyCustomIncludes() {
     }
 
     for (let i = fromIndex; i < arrayLength; i++) {
-      if ((isNaN(valueToFind) && isNaN(this[i])) || valueToFind === this[i]) {
+      if (
+        isNaN(valueToFind)
+        && isNaN(this[i]) // eslint-disable-line
+        || valueToFind === this[i] // eslint-disable-line
+      ) {
         return true;
       }
     }
     return false;
   };
 }
-
 module.exports = applyCustomIncludes;
