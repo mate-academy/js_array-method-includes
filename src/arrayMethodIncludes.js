@@ -5,19 +5,19 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (valueToFind === undefined || this.length < 1) {
+    if (this.length < 1) {
       return false;
     }
 
     for (let i = fromIndex || 0; i < this.length; i++) {
       if (this[i] === valueToFind) {
         return true;
-      } else if (isNaN(this[i]) && isNaN(valueToFind)) {
+      } else if (Number.isNaN(this[i]) && Number.isNaN(valueToFind)) {
         return true;
       }
     }
+
     return false;
   };
 }
-
 module.exports = applyCustomIncludes;
