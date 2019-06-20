@@ -5,20 +5,24 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let result = false;
     for (let i = fromIndex; i < this.length; i++) {
       switch (true) {
         case valueToFind === undefined:
-          return false;
+          result = false;
+          break;
         case this[i] === valueToFind:
-          return true;
-        case (isNaN(this[i]) && isNaN(valueToFind)):
-          return true;
+          result = true;
+          break;
+        case isNaN(valueToFind) && isNaN(this[i]):
+          result = true;
+          break;
         case valueToFind.length === 0:
-          return true;
-        default:
-          return false;
+          result = true;
+          break;
       }
     }
+    return result;
   };
 }
 
