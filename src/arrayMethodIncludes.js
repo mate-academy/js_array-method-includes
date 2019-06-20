@@ -10,7 +10,7 @@ function applyCustomIncludes() {
       return false;
     }
 
-    for (let i = startFromIndex || 0; i < this.length; i++) {
+    for (let i = startFromIndex; i < this.length; i++) {
       if (this[i] === valueToFind) {
         return true;
       }
