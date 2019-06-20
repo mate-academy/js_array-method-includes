@@ -12,11 +12,7 @@ function applyCustomIncludes() {
         return true;
       }
     }
-    if (isNaN(valueToFind) && valueToFind !== undefined) {
-      console.log(valueToFind);
-      return true;
-    }
-    return false;
+    return isNaN(valueToFind) && valueToFind !== undefined;
   };
 }
 
