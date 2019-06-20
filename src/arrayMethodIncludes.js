@@ -7,7 +7,7 @@ function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     for (let i = fromIndex; i < this.length; i++) {
       if (this[i] === valueToFind
-        || (`${this[i]}` === `${NaN}` && `${valueToFind}` === `${NaN}`)) {
+        || (Number.isNaN(this[i]) && Number.isNaN(valueToFind))) {
         return true;
       }
     }
