@@ -5,7 +5,22 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    // write code here
+    const startFromIndex = fromIndex;
+    if (valueToFind === undefined) {
+      return false;
+    }
+
+    for (let i = startFromIndex || 0; i < this.length; i++) {
+      if (this[i] === valueToFind) {
+        return true;
+      }
+
+      if (isNaN(this[i]) && isNaN(valueToFind)) {
+        return true;
+      }
+    }
+
+    return false;
   };
 }
 
