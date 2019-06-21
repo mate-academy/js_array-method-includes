@@ -9,19 +9,16 @@ function applyCustomIncludes() {
       return false;
     }
 
-    if (fromIndex >= 0) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if ((this[i] === valueToFind)
-          || (isNaN(valueToFind) && isNaN(this[i]))) {
-          return true;
-        }
-      }
-    } else {
-      for (let i = fromIndex; i < 0; i++) {
-        if (this[this.length + i] === valueToFind
-          || (isNaN(valueToFind) && isNaN(this[i]))) {
-          return true;
-        }
+    let startIndex = fromIndex;
+    if (fromIndex < 0) {
+      startIndex = this.length + fromIndex;
+    };
+
+    for (let i = startIndex; i < this.length; i++) {
+      if (isNaN(this[i]) && isNaN(valueToFind)) {
+        return true;
+      } else if (this[i] === valueToFind) {
+        return true;
       }
     }
 
@@ -29,8 +26,4 @@ function applyCustomIncludes() {
   };
 };
 
-/* const n = [1,2,NaN,20,3,4,5];
-applyCustomIncludes()
-console.log(n.includes2());
-console.log(n.includes()); */
 module.exports = applyCustomIncludes;
