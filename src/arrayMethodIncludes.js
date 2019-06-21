@@ -4,17 +4,11 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    let index = fromIndex;
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let index = fromIndex < 0 ? fromIndex + this.length : fromIndex;
 
-    for (let i = 0; i < this.length; i++) {
-      if (!fromIndex) {
-        index = i;
-      }
-
-      if (arguments.length < 1) {
-        return false;
-      }
+    for (let i = index; i < this.length; i++) {
+      index = i;
 
       if (Number.isNaN(this[i]) && Number.isNaN(valueToFind)) {
         return true;
@@ -30,6 +24,6 @@ function applyCustomIncludes() {
 
 applyCustomIncludes();
 const source = ['11', '22', '33', NaN, '', 3];
-console.log(source.includes2(NaN));
+console.log(source.includes2('11', 1));
 
 module.exports = applyCustomIncludes;
