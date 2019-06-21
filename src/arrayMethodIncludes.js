@@ -22,8 +22,4 @@ function applyCustomIncludes() {
   };
 }
 
-applyCustomIncludes();
-const source = ['11', '22', '33', NaN, '', 3];
-console.log(source.includes2('11', 1));
-
 module.exports = applyCustomIncludes;
