@@ -10,19 +10,23 @@ function applyCustomIncludes() {
 
     if (arguments.length === 0) {
       return false;
-    };
+    }
 
-    if (fromIndex < 0) {
-      return false;
-    };
+    if (fromIndex && typeof fromIndex === 'number') {
+      if (fromIndex >= 0) {
+        start = fromIndex;
+      } else {
+        start = thisArrLength + fromIndex;
+      }
 
-    if (isNaN(fromIndex)) {
-      start = 0;
-    };
+      if (start > thisArrLength) {
+        return false;
+      }
 
-    if (arguments.length === 2) {
-      start = fromIndex;
-    };
+      if (start < 0) {
+        start = 0;
+      }
+    }
 
     for (let i = start; i < thisArrLength; i++) {
       if (String(valueToFind) === 'NaN') {
