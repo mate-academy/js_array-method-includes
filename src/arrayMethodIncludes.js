@@ -9,7 +9,7 @@ function applyCustomIncludes() {
     for (let i = fromIndex; i < this.length - fromIndex; i++) {
       switch (true) {
         case valueToFind === undefined:
-          result = true;
+          result = false;
           break;
         case this[i] === valueToFind:
           result = true;
