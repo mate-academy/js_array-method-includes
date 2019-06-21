@@ -9,8 +9,9 @@ function applyCustomIncludes() {
       return false;
     }
 
-    for (let i = fromIndex || 0; i < this.length; i++) {
-      if (this[i] === valueToFind) {
+    const startIndex = fromIndex < 0 ? this.length - 1 + fromIndex : fromIndex;
+    for (let i = startIndex; i < this.length; i++) {
+      if (this[i] === valueToFind || this[i] === undefined) {
         return true;
       }
 
