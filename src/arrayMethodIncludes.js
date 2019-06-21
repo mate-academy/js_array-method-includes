@@ -11,12 +11,16 @@ function applyCustomIncludes() {
       searchIndex = this.length + fromIndex;
     }
 
+    if (valueToFind === undefined) {
+      return false;
+    }
+
     for (let i = 0; i < this.length; i++) {
       if (valueToFind === this[i] && i >= searchIndex) {
         return true;
       }
 
-      if (isNaN(valueToFind) && `${valueToFind}` === `${this[i]}`) {
+      if (isNaN(valueToFind) && isNaN(this[i])) {
         return true;
       }
     }
