@@ -6,10 +6,10 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     let result = false;
-    for (let i = fromIndex; i < this.length; i++) {
+    for (let i = fromIndex; i < this.length - fromIndex; i++) {
       switch (true) {
         case valueToFind === undefined:
-          result = false;
+          result = true;
           break;
         case this[i] === valueToFind:
           result = true;
