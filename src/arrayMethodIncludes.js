@@ -4,8 +4,11 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    for (let i = fromIndex || 0; i < this.length; i++) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let i = (fromIndex < 0)
+      ? fromIndex + this.length
+      : fromIndex;
+    for (i; i < this.length; i++) {
       if (Number.isNaN(this[i]) && Number.isNaN(valueToFind)) {
         return true;
       }
