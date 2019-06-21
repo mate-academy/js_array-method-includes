@@ -5,7 +5,6 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    // write code here
     if (valueToFind === undefined) {
       return false;
     }
