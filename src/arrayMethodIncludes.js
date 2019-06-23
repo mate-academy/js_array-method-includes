@@ -3,7 +3,7 @@
 /**
  * Implement method includes
  */
-// const arr = [1, 3, 4, 5, 6]
+
  function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
 
@@ -30,5 +30,5 @@
 
   };
 }
-// console.log(arr.includes2(5,1));
+
 module.exports = applyCustomIncludes;
