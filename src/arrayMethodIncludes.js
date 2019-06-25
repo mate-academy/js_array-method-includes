@@ -4,8 +4,8 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    if (this.length === 0 || valueToFind === undefined) {
+  [].__proto__.includes2 = function(valueToFind = false, fromIndex = 0) {
+    if (this.length === 0) {
       return false;
     }
 
