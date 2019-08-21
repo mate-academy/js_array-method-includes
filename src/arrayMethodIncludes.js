@@ -10,15 +10,12 @@ function applyCustomIncludes() {
     for (i; i < this.length; i++) {
       if (this[i] === valueToFind) {
         return true;
-      } else if (
-        isNaN(this[i])
-        && isNaN(valueToFind)
-        && valueToFind !== undefined
-      ) {
-        return true;
       }
     }
-    return false;
+
+    return (isNaN(this[i])
+      && isNaN(valueToFind)
+      && valueToFind !== undefined);
   };
 }
 
