@@ -9,9 +9,8 @@ function applyCustomIncludes() {
     let isFound = false;
 
     while (!isFound && currentIndex < this.length) {
-      if (isNaN(this[currentIndex])
-          && isNaN(valueToFind)
-          && valueToFind !== undefined) {
+      if (Number.isNaN(this[currentIndex])
+          && Number.isNaN(valueToFind)) {
         isFound = true;
       } else if ((this[currentIndex] === valueToFind)) {
         isFound = true;
