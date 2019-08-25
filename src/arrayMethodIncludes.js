@@ -5,7 +5,19 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    // write code here
+    const sourseIndex = (fromIndex !== undefined) ? fromIndex : 0;
+
+    if (valueToFind === undefined) {
+      return false;
+    }
+
+    for (let i = sourseIndex; i < this.length - 1; i++) {
+      if (this[i] === valueToFind || (isNaN(valueToFind))) {
+        return true;
+      }
+    }
+
+    return false;
   };
 }
 
