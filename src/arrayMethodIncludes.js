@@ -5,11 +5,9 @@
  */
 
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    let i = 0;
-    if (fromIndex) {
-      i = fromIndex;
-    };
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let i = fromIndex;
+
     for (i; i < this.length; i++) {
       // eslint-disable-next-line no-self-compare
       if ((valueToFind !== valueToFind) && (this[i] !== this[i])) {
@@ -18,6 +16,7 @@ function applyCustomIncludes() {
         return true;
       }
     }
+
     return false;
   };
 }
