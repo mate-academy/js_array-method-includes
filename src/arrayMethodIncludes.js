@@ -5,14 +5,27 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    for (let i = fromIndex; i < this.length; i++) {
-      if (this[i] === valueToFind
-        || (Number.isNaN(valueToFind) && Number.isNaN(this[i]))) {
-        return true;
+    if (fromIndex >= 0) {
+      for (let i = fromIndex; i < this.length; i++) {
+        if (valueToFind === this[i]
+          || (Number.isNaN(valueToFind)
+            && Number.isNaN(valueToFind) === Number.isNaN(this[i]))) {
+          return true;
+        }
       }
-    }
 
-    return false;
+      return false;
+    } else {
+      for (let i = this.length + fromIndex; i < this.length; i++) {
+        if (valueToFind === this[i]
+          || (Number.isNaN(valueToFind)
+            && Number.isNaN(valueToFind) === Number.isNaN(this[i]))) {
+          return true;
+        }
+      }
+
+      return false;
+    }
   };
 }
 
