@@ -9,7 +9,7 @@ function applyCustomIncludes() {
       return false;
     }
     let i = fromIndex;
-    if ((fromIndex + arguments.length) < 0) {
+    if ((fromIndex + this.length) < 0) {
       i = 0;
     }
     for (; i < this.length; i++) {
