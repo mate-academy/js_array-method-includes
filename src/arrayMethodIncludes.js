@@ -9,6 +9,9 @@ function applyCustomIncludes() {
       return false;
     }
     let i = fromIndex;
+    if (fromIndex < 0) {
+      i = this.length + fromIndex;
+    }
     if ((fromIndex + this.length) < 0) {
       i = 0;
     }
