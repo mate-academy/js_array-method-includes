@@ -8,10 +8,12 @@ function applyCustomIncludes() {
     if (valueToFind === undefined) {
       return false;
     }
-    if (fromIndex < 0) {
-      return false;
+
+    let step = fromIndex;
+    if (step < 0) {
+      step = this.length + (fromIndex);
     }
-    for (let i = fromIndex; i < this.length; i++) {
+    for (let i = step; i < this.length; i++) {
       if (isNaN(this[i]) && (isNaN(valueToFind))) {
         return true;
       }
