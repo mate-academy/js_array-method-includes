@@ -8,6 +8,9 @@ function applyCustomIncludes() {
     if (valueToFind === undefined) {
       return false;
     }
+    if (fromIndex < 0) {
+      return false;
+    }
     for (let i = fromIndex; i < this.length; i++) {
       if (isNaN(this[i]) && (isNaN(valueToFind))) {
         return true;
