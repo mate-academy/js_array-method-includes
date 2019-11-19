@@ -4,8 +4,13 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    // write code here
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    for (let i = fromIndex; i < this.length; i++) {
+      if (Object.is(this[i], valueToFind)) {
+        return true;
+      }
+    }
+    return false;
   };
 }
 
