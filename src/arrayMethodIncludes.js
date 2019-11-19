@@ -4,24 +4,31 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     if (valueToFind === undefined) {
       return false;
     }
 
-    if (fromIndex && this[fromIndex] !== valueToFind) {
-      return false;
-    }
-
-    for (let i = 0; i < this.length; i++) {
-      if (this[i].toString() === valueToFind.toString()
-          && typeof this[i] === typeof valueToFind) {
-        return true;
+    if (fromIndex >= 0) {
+      for (let i = fromIndex; i < this.length; i++) {
+        if (valueToFind === this[i]
+            || (isNaN(valueToFind)
+            && isNaN(valueToFind) === isNaN(this[i]))) {
+          return true;
+        }
+      }
+    } else {
+      for (let i = this.length + fromIndex; i < this.length; i++) {
+        if (valueToFind === this[i]
+            || (isNaN(valueToFind)
+            && isNaN(valueToFind) === isNaN(this[i]))) {
+          return true;
+        }
       }
     }
 
     return false;
   };
-}
+};
 
 module.exports = applyCustomIncludes;
