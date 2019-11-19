@@ -9,7 +9,13 @@ function applyCustomIncludes() {
       return false;
     }
 
-    for (let i = fromIndex; i < this.length; i++) {
+    let i = fromIndex;
+
+    if (fromIndex < 0) {
+      i = this.length + fromIndex;
+    }
+
+    for (i; i < this.length; i++) {
       if (this[i] === valueToFind
       || (isNaN(valueToFind)
       && isNaN(this[i]))) {
