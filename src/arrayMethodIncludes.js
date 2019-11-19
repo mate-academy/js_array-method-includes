@@ -13,9 +13,8 @@ function applyCustomIncludes() {
           return true;
         }
       }
-
-      return false;
     }
+    return false;
   };
 }
 
