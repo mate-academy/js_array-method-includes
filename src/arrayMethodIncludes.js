@@ -26,11 +26,7 @@ function applyCustomIncludes() {
     }
 
     for (let i = start; i < this.length; i++) {
-      if (this[i] === valueToFind) {
-        return true;
-      }
-
-      if (isNaN(this[i]) && isNaN(valueToFind)) {
+      if (Object.is(this[i], valueToFind)) {
         return true;
       }
     }
