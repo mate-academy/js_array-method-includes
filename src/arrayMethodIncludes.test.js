@@ -44,6 +44,11 @@ test(`includes 33 fromIndex -2`, () => {
     .toBe(false);
 });
 
+test(`includes 33 fromIndex -44`, () => {
+  expect(source.includes2('33', -44))
+    .toBe(true);
+});
+
 test(`includes 'NaN'`, () => {
   expect(source.includes2(NaN))
     .toBe(true);
