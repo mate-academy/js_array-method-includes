@@ -9,7 +9,12 @@ function applyCustomIncludes() {
       return false;
     }
 
-    for (let i = fromIndex; i < this.length; i++) {
+    let startIndex = fromIndex;
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+
+    for (let i = startIndex; i < this.length; i++) {
       if (Object.is(valueToFind, this[i])) {
         return true;
       }
