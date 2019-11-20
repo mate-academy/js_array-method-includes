@@ -4,8 +4,12 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (typeof valueToFind === 'undefined') {
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    if (this.length === 0 || arguments.length === 0) {
+      return false;
+    }
+
+    if (fromIndex >= this.length) {
       return false;
     }
 
@@ -17,11 +21,7 @@ function applyCustomIncludes() {
       start = fromIndex;
     }
 
-    if (typeof fromIndex === 'undefined') {
-      start = 0;
-    }
-
-    if (fromIndex >= this.length) {
+    if (start < 0) {
       return false;
     }
 
