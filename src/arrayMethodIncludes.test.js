@@ -1,55 +1,69 @@
 'use strict';
 
-const applyCustomIncludes = require('./arrayMethodIncludes');
-const source = ['11', '22', '33', NaN, '', 3];
-applyCustomIncludes();
+require('./arrayMethodIncludes')();
 
-test('includes2 is added to [].__proto__', () => {
-  expect([].includes2)
-    .toBeInstanceOf(Function);
-});
+describe('includes2', () => {
+  test('should be added to [].__proto__', () => {
+    expect([].includes2)
+      .toBeInstanceOf(Function);
+  });
 
-test(`includes2 doesn't call default includes`, () => {
-  expect([].includes2.toString().includes('.includes('))
-    .toBe(false);
-});
+  test(`should not use default includes`, () => {
+    expect([].includes2.toString().includes('.includes('))
+      .toBe(false);
+  });
 
-test(`without valueToFind`, () => {
-  expect(source.includes2())
-    .toBe(false);
-});
+  test(`should return true for existent element`, () => {
+    expect(['11', '22', '33'].includes2('22'))
+      .toBe(true);
+  });
 
-test(`includes '11'`, () => {
-  expect(source.includes2('11'))
-    .toBe(true);
-});
+  test(`should not match an element partly`, () => {
+    expect(['11', '22', '33'].includes2('2'))
+      .toBe(false);
+  });
 
-test(`includes '1'`, () => {
-  expect(source.includes2('1'))
-    .toBe(false);
-});
+  test(`Should not find an element matching only with == `, () => {
+    expect(['11', '22', '33'].includes2(22))
+      .toBe(false);
+  });
 
-test(`includes 11`, () => {
-  expect(source.includes2(11))
-    .toBe(false);
-});
+  test(`should not find an element if present only before fromIndex`, () => {
+    expect(['11', '22', '33'].includes2('22', 2))
+      .toBe(false);
+  });
 
-test(`includes '11' fromIndex 1`, () => {
-  expect(source.includes2('11', 1))
-    .toBe(false);
-});
+  test(`should handle negative fromIndex as a shift from the end`, () => {
+    expect(['11', '22', '33'].includes2('22', -2))
+      .toBe(true);
+    expect(['11', '22', '33'].includes2('22', -1))
+      .toBe(false);
+  });
 
-test(`includes 33 fromIndex -2`, () => {
-  expect(source.includes2(33, -2))
-    .toBe(false);
-});
+  test(`should correctly search for null`, () => {
+    expect([undefined, NaN, '', null].includes2(null))
+      .toBe(true);
+  });
 
-test(`includes 'NaN'`, () => {
-  expect(source.includes2(NaN))
-    .toBe(true);
-});
+  test(`should correctly search for NaN`, () => {
+    expect([undefined, NaN, '', null].includes2(NaN))
+      .toBe(true);
+  });
 
-test(`includes ''`, () => {
-  expect(source.includes2(''))
-    .toBe(true);
+  test(`should correctly search for undefined`, () => {
+    expect([undefined, NaN, '', null].includes2(undefined))
+      .toBe(true);
+  });
+
+  test(`should work for big negative fromIndex`, () => {
+    expect(['11', '22', '33'].includes2(undefined, -999))
+      .toBe(false);
+  });
+
+  test(`should search for undefined if valueToFind was not given`, () => {
+    expect(['11', '22', '33'].includes2())
+      .toBe(false);
+    expect(['11', '22', undefined].includes2())
+      .toBe(true);
+  });
 });
