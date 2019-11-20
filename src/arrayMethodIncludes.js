@@ -20,7 +20,7 @@ function applyCustomIncludes() {
     }
 
     if (start < 0) {
-      return false;
+      start = 0;
     }
 
     for (let i = start; i < this.length; i++) {
