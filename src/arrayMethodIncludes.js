@@ -5,11 +5,9 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    if (this.length === 0 || arguments.length === 0) {
-      return false;
-    }
-
-    if (fromIndex >= this.length) {
+    if (this.length === 0
+      || arguments.length === 0
+      || fromIndex >= this.length) {
       return false;
     }
 
