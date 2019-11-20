@@ -11,7 +11,7 @@ function applyCustomIncludes() {
 
     let startIndex = fromIndex;
     if (startIndex < 0) {
-      startIndex = 0;
+      startIndex = this.length + fromIndex;
     }
 
     for (let i = startIndex; i < this.length; i++) {
