@@ -5,8 +5,8 @@
  */
 
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (-fromIndex > this.length) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    if (!this.length) {
       return false;
     }
 
@@ -18,27 +18,19 @@ function applyCustomIncludes() {
       }
     }
 
-    if (fromIndex === undefined) {
-      for (let i = 0; i < this.length; i++) {
-        if (this[i] === valueToFind) {
-          return true;
-        }
-      }
+    let startIndex;
+
+    if ((this.length + fromIndex) < 0 && fromIndex < 0) {
+      startIndex = 0;
+    } else if (fromIndex < 0) {
+      startIndex = this.length + fromIndex;
+    } else {
+      startIndex = fromIndex;
     }
 
-    if (fromIndex > 0) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if (this[i] === valueToFind) {
-          return true;
-        }
-      }
-    }
-
-    if (fromIndex < 0) {
-      for (let i = this.length + fromIndex; i < this.length; i++) {
-        if (this[i] === valueToFind) {
-          return true;
-        }
+    for (let i = startIndex; i < this.length; i++) {
+      if (this[i] === valueToFind) {
+        return true;
       }
     }
 
