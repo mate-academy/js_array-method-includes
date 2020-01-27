@@ -5,13 +5,19 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    if (this.length === 0) {
+    if (!this.length) {
       return false;
     }
 
-    const index = fromIndex < 0 && this.length < Math.abs(fromIndex) ? 0
-      : fromIndex < 0 ? fromIndex + this.length
-        : fromIndex;
+    let index;
+
+    if (fromIndex < 0 && this.length < Math.abs(fromIndex)) {
+      index = 0;
+    } else if (fromIndex < 0) {
+      index = fromIndex + this.length;
+    } else {
+      index = fromIndex;
+    }
 
     for (let i = index; i < this.length; i++) {
       if ((Number.isNaN(valueToFind) && Number.isNaN(this[i]))
