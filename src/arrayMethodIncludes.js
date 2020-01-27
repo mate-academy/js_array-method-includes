@@ -4,13 +4,13 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     let index;
 
     if (Math.abs(fromIndex) !== fromIndex) {
-      index = (this.length + fromIndex) || 0;
+      index = (this.length + fromIndex);
     } else {
-      index = fromIndex || 0;
+      index = fromIndex;
     }
 
     if (index <= -1) {
