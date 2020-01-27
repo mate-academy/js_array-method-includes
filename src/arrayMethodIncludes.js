@@ -4,15 +4,15 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (this.length === 0) {
+  [].__proto__.includes2 = function(valueToFind = undefined, fromIndex) {
+    if (!this.length) {
       return undefined;
     }
 
     const findValue = valueToFind || undefined;
     let indexFrom = fromIndex || 0;
 
-    if (Math.sign(indexFrom) < 0) {
+    if (Math.sign(fromIndex) < 0) {
       indexFrom = this.length - Math.abs(indexFrom);
 
       if (Math.sign(indexFrom) < 0) {
