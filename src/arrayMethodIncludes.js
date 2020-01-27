@@ -4,8 +4,8 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    let startIndex = fromIndex || 0;
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let startIndex = fromIndex;
     const toFind = valueToFind || undefined;
 
     if (fromIndex >= this.length || fromIndex <= -this.length) {
