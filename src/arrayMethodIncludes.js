@@ -4,24 +4,25 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (Number.isNaN(valueToFind)) {
-      return this.findIndex(Number.isNaN) >= 0;
+  [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
+    let indexFrom = fromIndex;
+
+    if (fromIndex < 0) {
+      indexFrom = fromIndex + this.length;
     }
 
-    switch (Math.sign(fromIndex)) {
-      case -1: {
-        return this.indexOf(valueToFind) === this.length + fromIndex;
-      }
+    if (indexFrom < 0) {
+      indexFrom = 0;
+    }
 
-      case 1: {
-        return this.indexOf(valueToFind) === fromIndex;
-      }
-
-      default: {
-        return this.indexOf(valueToFind) !== -1;
+    for (indexFrom; indexFrom < this.length; indexFrom++) {
+      if ((this[indexFrom] === valueToFind)
+      || (isNaN(valueToFind) && isNaN(this[indexFrom]))) {
+        return true;
       }
     }
+
+    return false;
   };
 }
 
