@@ -21,8 +21,9 @@ function applyCustomIncludes() {
 
     for (index; index < this.length; index++) {
       if (this[index] === valueToFind
-      || (Number.isNaN(valueToFind)
-      && Number.isNaN(this[index]))) {
+        || (Number.isNaN(valueToFind)
+        && Number.isNaN(this[index]))
+      ) {
         return true;
       }
     }
