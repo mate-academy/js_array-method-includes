@@ -14,9 +14,9 @@ function applyCustomIncludes() {
     }
 
     for (let i = searchFrom; i < this.length; i++) {
-      if (
-        valueToFind === this[i]
-         || (Number.isNaN(this[i]) && Number.isNaN(valueToFind))) {
+      if (valueToFind === this[i]
+         || (Number.isNaN(this[i]) && Number.isNaN(valueToFind))
+      ) {
         return true;
       }
     }
