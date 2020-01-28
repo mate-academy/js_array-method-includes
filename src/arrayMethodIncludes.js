@@ -5,19 +5,15 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    // write code here
     let count = 0;
     let foundIndex = fromIndex;
 
-    if (typeof valueToFind === 'number' && !isNaN(valueToFind)) {
+    if ((typeof valueToFind === 'number' && !isNaN(valueToFind))
+      || this.length + foundIndex < 0) {
       return false;
     }
 
-    if (this.length + foundIndex < 0) {
-      return false;
-    }
-
-    if (Math.sign(foundIndex) === -1) {
+    if (foundIndex < 0) {
       foundIndex = this.length + foundIndex;
     }
 
