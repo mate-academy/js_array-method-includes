@@ -16,15 +16,12 @@ function applyCustomIncludes() {
     }
 
     if (index < 0) {
-      index = this.length + fromIndex;
-    }
-
-    if (index < 0) {
       index = 0;
     }
 
     for (index; index < this.length; index++) {
-      if (this[index] === valueToFind || (Number.isNaN(valueToFind)
+      if (this[index] === valueToFind
+      || (Number.isNaN(valueToFind)
       && Number.isNaN(this[index]))) {
         return true;
       }
