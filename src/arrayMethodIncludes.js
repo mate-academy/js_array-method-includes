@@ -23,7 +23,7 @@ function applyCustomIncludes() {
 
     for (let index = searchFrom; index < this.length; index++) {
       if (valueToFind === this[index]
-          || (Number.isNaN(valueToFind) && Number.isNaN(this[index]))
+        || (Number.isNaN(valueToFind) && Number.isNaN(this[index]))
       ) {
         return true;
       }
