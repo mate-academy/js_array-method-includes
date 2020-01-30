@@ -7,7 +7,7 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     if ((arguments.length === 0 && valueToFind !== undefined)
-    || fromIndex >= this.length) {
+      || fromIndex >= this.length) {
       return -1;
     }
 
@@ -23,7 +23,8 @@ function applyCustomIncludes() {
 
     for (let index = searchFrom; index < this.length; index++) {
       if (valueToFind === this[index]
-        || (Number.isNaN(valueToFind) && Number.isNaN(this[index]))) {
+          || (Number.isNaN(valueToFind) && Number.isNaN(this[index]))
+      ) {
         return true;
       }
     }
