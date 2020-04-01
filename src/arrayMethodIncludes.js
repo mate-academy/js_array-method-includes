@@ -17,7 +17,7 @@ function applyCustomIncludes() {
 
     for (let i = searchIndex; i < this.length; i++) {
       if (this[i] === valueToFind
-        || ('' + this[i] === 'NaN' && '' + valueToFind === 'NaN')) {
+        || (Number.isNaN(this[i]) && Number.isNaN(valueToFind))) {
         return true;
       }
       continue;
