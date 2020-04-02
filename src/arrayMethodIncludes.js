@@ -13,7 +13,7 @@ function applyCustomIncludes() {
 
     if (this.length + fromIndex < 0) {
       index = 0;
-    };
+    }
 
     for (let i = index; i < this.length; i++) {
       if (this[i] === valueToFind) {
