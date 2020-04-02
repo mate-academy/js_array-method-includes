@@ -16,10 +16,6 @@ function applyCustomIncludes() {
     }
 
     for (let i = index; i < this.length; i++) {
-      if (this[i] === valueToFind) {
-        return true;
-      }
-
       if (Object.is(this[i], valueToFind)) {
         return true;
       }
