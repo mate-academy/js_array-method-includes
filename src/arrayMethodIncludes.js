@@ -8,7 +8,7 @@ function applyCustomIncludes() {
     let index = fromIndex;
 
     if (index < 0) {
-      index += this.length + index;
+      index += this.length;
     }
 
     if (index < 0) {
