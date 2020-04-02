@@ -1,14 +1,11 @@
 'use strict';
 
-/**
- * Implement method includes
- */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
     let index = fromIndex;
 
     if (index < 0) {
-      index = index + this.length;
+      index += this.length;
     }
 
     if (index < 0) {
