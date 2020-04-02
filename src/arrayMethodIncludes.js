@@ -8,17 +8,22 @@ function applyCustomIncludes() {
     // write code here
     let withIndex = fromIndex;
 
-    if (fromIndex < -1 || fromIndex === undefined) {
-      withIndex = 0;
-    } else if (fromIndex >= this.length || fromIndex === -1) {
+    if (fromIndex >= this.length) {
       return false;
     }
 
+    if (fromIndex === undefined
+      || fromIndex === null
+      || Number.isNaN(fromIndex)
+      || (valueToFind === undefined && withIndex < 0)) {
+      withIndex = 0;
+    } else if (fromIndex < 0) {
+      withIndex = fromIndex + this.length;
+    }
+
     for (let i = withIndex; i < this.length; i++) {
-      if (typeof this[i] === 'number'
-        && isNaN(this[i])
-        && typeof valueToFind === 'number'
-        && isNaN(valueToFind)) {
+      if (Number.isNaN(this[i])
+        && Number.isNaN(valueToFind)) {
         return true;
       } else if (this[i] === valueToFind) {
         return true;
