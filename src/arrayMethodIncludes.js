@@ -16,11 +16,7 @@ function applyCustomIncludes() {
     };
 
     for (let i = desiredIndex; i < this.length; i++) {
-      if (isNaN(valueToFind) && isNaN(this[i])) {
-        return true;
-      };
-
-      if (this[i] === valueToFind) {
+      if (Object.is(valueToFind, this[i])) {
         return true;
       };
     };
