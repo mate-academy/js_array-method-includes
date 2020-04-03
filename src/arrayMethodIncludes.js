@@ -24,7 +24,7 @@ function applyCustomIncludes() {
         return true;
       }
 
-      if (isNaN(valueToFind) && isNaN(this[i])) {
+      if (Object.is(valueToFind, this[i])) {
         return true;
       }
     }
