@@ -6,7 +6,7 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
     if (fromIndex >= this.length) {
-      return false;
+      return -1;
     }
 
     let index = fromIndex;
@@ -20,9 +20,7 @@ function applyCustomIncludes() {
     }
 
     for (let i = index; i < this.length; i++) {
-      if (this[i] === valueToFind
-        || isNaN(valueToFind) === true
-        & isNaN(this[i]) === true) {
+      if (this[i] === valueToFind || isNaN(valueToFind) & isNaN(this[i])) {
         return true;
       }
     }
