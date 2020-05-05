@@ -36,6 +36,7 @@ describe('includes2', () => {
   test(`should handle negative fromIndex as a shift from the end`, () => {
     expect(['11', '22', '33'].includes2('22', -2))
       .toBe(true);
+
     expect(['11', '22', '33'].includes2('22', -1))
       .toBe(false);
   });
@@ -63,6 +64,7 @@ describe('includes2', () => {
   test(`should search for undefined if valueToFind was not given`, () => {
     expect(['11', '22', '33'].includes2())
       .toBe(false);
+
     expect(['11', '22', undefined].includes2())
       .toBe(true);
   });
