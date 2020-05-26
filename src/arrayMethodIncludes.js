@@ -18,12 +18,8 @@ function applyCustomIncludes() {
     // check for big negative fromIndex
 
     for (let i = newFromIndex; i < this.length; i++) {
-      if (this[i] === valueToFind) {
+      if (Object.is(this[i], valueToFind)) {
         return true;
-      } else if (isNaN(valueToFind)) {
-        if (isNaN(this[i])) {
-          return true;
-        }
       }
     }
 
