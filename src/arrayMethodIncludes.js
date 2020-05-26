@@ -5,7 +5,7 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    if (this.length === 0) {
+    if (!this.length) {
       return;
     }
 
