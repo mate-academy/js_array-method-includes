@@ -5,7 +5,7 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    let newFromIndex = 0;
+    let newFromIndex = fromIndex;
 
     // how to handle negative correct index number
     if (fromIndex < 0) {
