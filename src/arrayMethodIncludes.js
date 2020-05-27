@@ -5,10 +5,6 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    if (!this.length) {
-      return;
-    }
-
     if (-1 * fromIndex > this.length) {
       return false;
     }
@@ -16,7 +12,7 @@ function applyCustomIncludes() {
     const indexStart = fromIndex < 0 ? this.length + fromIndex : fromIndex;
 
     for (let i = indexStart; i < this.length; i++) {
-      if (JSON.stringify(valueToFind) === JSON.stringify(this[i])) {
+      if (Object.is(valueToFind, this[i])) {
         return true;
       }
     }
