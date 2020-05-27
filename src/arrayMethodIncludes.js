@@ -8,11 +8,9 @@ function applyCustomIncludes() {
     let reassignedIndex = fromIndex;
 
     if (fromIndex < 0) {
-      if (Math.abs(fromIndex) > this.length) {
-        reassignedIndex = 0;
-      } else {
-        reassignedIndex = this.length + fromIndex;
-      }
+      (Math.abs(fromIndex) > this.length)
+        ? reassignedIndex = 0
+        : reassignedIndex = this.length + fromIndex;
     } else if (fromIndex > this.length - 1) {
       return false;
     }
