@@ -5,11 +5,11 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex = 0) {
-    const changedFromIndex = fromIndex >= 0 ? fromIndex
+    let changedFromIndex = fromIndex >= 0 ? fromIndex
       : fromIndex + this.length;
 
     if (this.length + changedFromIndex < 0) {
-      return false;
+      changedFromIndex = 0;
     }
     // check for big negative fromIndex
 
