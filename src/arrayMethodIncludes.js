@@ -14,12 +14,9 @@ function applyCustomIncludes() {
     }
 
     for (let i = startIndex; i < this.length; i++) {
-      if (!Number.isNaN(valueToFind) && this[i] === valueToFind) {
+      if ((!Number.isNaN(valueToFind) && this[i] === valueToFind)
+      || Number.isNaN(this[i])) {
         return true;
-      } else {
-        if (Number.isNaN(this[i])) {
-          return true;
-        }
       }
     }
 
