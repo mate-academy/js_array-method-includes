@@ -5,8 +5,7 @@ function applyCustomIncludes() {
     const startIndex = fromIndex < 0 ? this.length + fromIndex : fromIndex;
 
     for (let i = startIndex < 0 ? 0 : startIndex; i < this.length; i++) {
-      if ((Object.is(valueToFind, NaN) && Object.is(this[i], NaN))
-        || valueToFind === this[i]) {
+      if (Object.is(valueToFind, this[i])) {
         return true;
       }
     }
