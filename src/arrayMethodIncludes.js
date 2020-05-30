@@ -5,7 +5,31 @@
  */
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    // write code here
+    let startFind = fromIndex;
+
+    if (!startFind) {
+      startFind = 0;
+    }
+
+    if (startFind < 0) {
+      startFind += this.length;
+    }
+
+    if (startFind < 0) {
+      startFind = 0;
+    }
+
+    for (let i = startFind; i < this.length; i++) {
+      if (this[i] === valueToFind) {
+        return true;
+      }
+
+      if (Object.is(valueToFind, this[i])) {
+        return true;
+      }
+    }
+
+    return false;
   };
 }
 
