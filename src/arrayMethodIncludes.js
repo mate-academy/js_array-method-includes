@@ -26,8 +26,7 @@ function applyCustomIncludes() {
     }
 
     for (i; i < this.length; i++) {
-      if (Object.is(this[i], searchedItem)
-        || (this[i] === null && searchedItem === null)) {
+      if (Object.is(this[i], searchedItem)) {
         return true;
       } else if (i === this.length - 1) {
         return false;
