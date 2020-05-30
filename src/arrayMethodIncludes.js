@@ -1,22 +1,32 @@
 'use strict';
-/* eslint-disable */
+
 /**
  * Implement method includes
  */
 
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind, fromIndex) {
-    if (fromIndex >= this.length) {return false};
-if (fromIndex < 0) {fromIndex = this.length + fromIndex};
-if (fromIndex < 0) {fromIndex = 0};
+    let startIndex = fromIndex;
 
-for (let i = fromIndex || 0; i < this.length; i++) {
-  if(Object.is(valueToFind, this[i])) {
-    return true
-  };
-}
+    if (startIndex >= this.length) {
+      return false;
+    };
 
-return false;
+    if (startIndex < 0) {
+      startIndex = this.length + startIndex;
+    };
+
+    if (startIndex < 0) {
+      startIndex = 0;
+    };
+
+    for (let i = startIndex || 0; i < this.length; i++) {
+      if (Object.is(valueToFind, this[i])) {
+        return true;
+      };
+    }
+
+    return false;
   };
 }
 
