@@ -4,19 +4,19 @@
  * Implement method includes
  */
 function applyCustomIncludes() {
-  [].__proto__.includes2 = function(valueToFind = undefined, fromIndex) {
-    let searchStart = fromIndex;
-
-    if (!fromIndex) {
-      searchStart = 0;
-    } else if (fromIndex < -this.length) {
+  [].__proto__.includes2 = function(valueToFind, fromIndex) {
+    if (fromIndex < -this.length) {
       return false;
-    } else if (fromIndex < 0) {
-      searchStart = this.length + searchStart;
+    }
+
+    let searchStart = (!fromIndex) ? 0 : fromIndex;
+
+    if (fromIndex < 0) {
+      searchStart = this.length + fromIndex;
     }
 
     for (let i = searchStart; i < this.length; i++) {
-      if (Object.is(this[i], valueToFind)) {
+      if (Object.is(valueToFind, this[i])) {
         return true;
       }
     }
