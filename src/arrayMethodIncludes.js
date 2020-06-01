@@ -16,20 +16,17 @@ function applyCustomIncludes() {
       }
     }
 
-    if (from > length) {
-      return false;
-    }
-
     for (let i = from; i < length; i++) {
-      if (typeof valueToFind === 'undefined') {
-        if (typeof this[i] === 'undefined') {
-          return true;
-        }
-      } else if (Number.isNaN(valueToFind)) {
-        if (Number.isNaN(this[i])) {
-          return true;
-        }
-      } else if (this[i] === valueToFind) {
+      if (
+        (
+          (
+            typeof valueToFind === 'undefined'
+            && typeof this[i] === 'undefined'
+          ) || (
+            Number.isNaN(valueToFind) && Number.isNaN(this[i])
+          ) || this[i] === valueToFind
+        ) && from <= length
+      ) {
         return true;
       }
     }
