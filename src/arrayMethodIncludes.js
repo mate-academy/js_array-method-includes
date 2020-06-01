@@ -6,27 +6,12 @@
 function applyCustomIncludes() {
   [].__proto__.includes2 = function(valueToFind = undefined, fromIndex = 0) {
     const length = this.length;
-    let from = fromIndex;
+    let from = fromIndex >= 0 ? fromIndex : fromIndex + length;
 
-    if (from < 0) {
-      if (-from > length) {
-        from = 0;
-      } else {
-        from += length;
-      }
-    }
+    from = from < 0 ? 0 : from;
 
     for (let i = from; i < length; i++) {
-      if (
-        (
-          (
-            typeof valueToFind === 'undefined'
-            && typeof this[i] === 'undefined'
-          ) || (
-            Number.isNaN(valueToFind) && Number.isNaN(this[i])
-          ) || this[i] === valueToFind
-        ) && from <= length
-      ) {
+      if (Object.is(this[i], valueToFind) && from <= length) {
         return true;
       }
     }
