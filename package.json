@@ -1,4 +1,7 @@
 {
+  "jest": {
+    "testEnvironment": "node"
+  },
   "name": "array-method-includes",
   "version": "1.0.0",
   "description": "Custom implementation of Array.prototype.includes()",
